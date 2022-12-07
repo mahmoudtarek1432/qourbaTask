@@ -1,0 +1,15 @@
+.footer {
+  background-color: #304055;
+  height: 150px;
+}
+
+.footer .container img {
+  width: 50px;
+}
+
+.footer .container .copyrights p {
+  font-size: 18px;
+  color: #7c8898;
+  font-weight: 500;
+}
+/*# sourceMappingURL=footer.component.css.map */

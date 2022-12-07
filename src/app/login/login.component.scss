@@ -1,0 +1,71 @@
+.login{
+  height: 88vh;
+  .container{
+    .page-content{
+      width: 20rem;
+      .icon{
+        img{
+
+        }
+      }
+      .title{
+        width: 100%;
+        text-align: center;
+        h3{
+          color: rgb(26, 26, 26);
+          font-size: 30px;
+          margin: 3px 0;
+        }
+        p{
+          color: #6b6b6b;
+          margin-top: 20px;
+        }
+      }
+      form{
+        .form-field{
+          margin: 10px 0;
+
+          label{
+            margin: 5px 0;
+            color: #464646;
+          }
+          input{
+            padding: 12px 12px;
+            font-size: 16px;
+            color: #000;
+            border: 1px solid #bebebe;
+            border-radius: 7px;
+            //transition: 0.2s ease-in all;
+          }
+          input:focus-visible{
+            outline: 4px solid #eeeeee;
+          }
+          input::placeholder{
+            color: rgb(43, 43, 43);
+          }
+          p{
+            margin: 3px;
+            font-size: 13px;
+            color: rgb(255 85 85);
+            height: 5px;
+          }
+
+          button{
+            height: 45px;
+            background-color: #56d9d9;
+            border-radius: 7px;
+            color: #292929;
+            border: 0;
+            margin: 18px 0;
+            font-size: 17px;
+            font-weight: 500;
+            transition: 0.2s ease all;
+          }
+          button:hover{
+            background-color: #9a56d9;
+          }
+        }
+      }
+    }
+  }
+}

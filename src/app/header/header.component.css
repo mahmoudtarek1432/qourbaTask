@@ -1,0 +1,41 @@
+@use "../../colors.scss";
+.header {
+  border-bottom: 1px solid #5e5e5e;
+  height: 12vh;
+}
+
+.header .icon {
+  width: 10rem;
+}
+
+.header .icon img {
+  margin-right: 10px;
+  width: 50px;
+}
+
+.header .nav {
+  list-style: none;
+}
+
+.header .nav li {
+  font-size: 17px;
+  color: #6b6b6b;
+}
+
+.header .login {
+  padding: 11px 20px;
+  -webkit-transition: 0.8s ease all;
+  transition: 0.8s ease all;
+}
+
+.header .login a {
+  font-size: 17px;
+  text-decoration: none;
+  color: #6b6b6b;
+}
+
+.header .login:hover {
+  background-color: #f8f8f8;
+  border-radius: 10px;
+}
+/*# sourceMappingURL=header.component.css.map */

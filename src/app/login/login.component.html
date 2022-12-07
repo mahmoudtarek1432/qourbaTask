@@ -1,0 +1,28 @@
+<div class="login">
+  <div class="container flex flex-column justify-center align-center">
+    <div class="page-content flex flex-column justify-center align-center">
+      <div class="icon">
+        <img src="../../assets/icon.jpeg" alt="">
+      </div>
+      <div class="title">
+        <h3>Log in to your account</h3>
+        <p>Welcome back! Please enter your details.</p>
+      </div>
+      <form action="" method="POST" ngNoForm [formGroup]='loginForm' style="width: 100%;">
+        <div class="form-field flex flex-column">
+          <label for="email">Email</label>
+          <input type="text" formControlName='email' name="Email"  placeholder="Enter your email">
+          <p class="error">{{formErrors['email']}}</p>
+        </div>
+        <div class="form-field flex flex-column">
+            <label for="pass">Password</label>
+            <input class="input-field" formControlName='password'  type="password" name="pass" placeholder="">
+            <p class="error">{{formErrors['password']}}</p>
+        </div>
+        <div class="form-field flex flex-column">
+          <button class="submit-button" type="submit" (ngSubmit)="onSubmitLogin()">Sign In</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

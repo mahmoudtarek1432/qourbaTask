@@ -1,0 +1,39 @@
+@use "../../colors.scss";
+
+$font_size_small: 17px;
+
+.header{
+  border-bottom: 1px solid rgb(94, 94, 94);
+  height: 12vh;
+  .icon{
+    width: 10rem;
+    img{
+      margin-right: 10px;
+      width: 50px;
+    }
+    h3{
+
+    }
+  }
+  .nav{
+    list-style: none;
+    li{
+      font-size: $font_size_small;
+      color: #6b6b6b;
+    }
+  }
+  .login{
+    padding: 11px 20px;
+    transition: 0.8s ease all;
+    a{
+      font-size: $font_size_small;
+      text-decoration: none;
+      color: #6b6b6b;
+    }
+  }
+  .login:hover{
+
+    background-color: #f8f8f8;
+    border-radius: 10px;
+  }
+}
