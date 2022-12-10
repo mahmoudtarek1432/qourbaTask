@@ -1,0 +1,32 @@
+<div class="item">
+  <div class="discount-fixed weigh">-12.96%</div>
+  <div class="item-image">
+    <img src="{{product.images[0]}}" alt="">
+  </div>
+  <div class="content">
+    <p class="item-name">{{product.title}}</p>
+    <div class="item-desc">
+      <p >{{product.description}}</p>
+    </div>
+    <p class="price flex">
+      <span class="original-price"><span class="weigh">{{product.price}}</span> USD</span>
+      <span class="discount-price"><span class="weigh">{{product.price - (product.price * (product.discountPercentage/100)) | currency:'usd':''}}</span> USD</span>
+    </p>
+    <p class="brand">Brand: <span class="weigh">{{product.brand}}</span></p>
+    <p class="category">Category: <span>{{product.category}}</span></p>
+    <p class="instock">In stock: <span class="weigh">{{product.stock}}</span></p>
+    <div class="rating flex">
+      <span class="flex-splitter"></span>
+      <div class="flex align-center ">
+        <span class="icon">
+          <fa-icon class="base" [icon]="fastar"></fa-icon>
+          <div [ngStyle]="{'width.%': (product.rating * 85)/5}" class="overlay">
+            <fa-icon  [icon]="fastar"></fa-icon>
+          </div>
+        </span>
+        <p>{{product.rating}}</p>
+      </div>
+    </div>
+    <button (click)="AddToCart()">ADD TO CART</button>
+  </div>
+</div>

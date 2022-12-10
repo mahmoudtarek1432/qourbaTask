@@ -1,0 +1,89 @@
+
+.item{
+  position: relative;
+  .discount-fixed{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: #56d9d9;
+    color: rgb(90, 90, 90);
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  .weigh{
+    font-weight: 700;
+  }
+  .item-image{
+    width: 100%;
+    img{
+      width: 100%;
+      height: 250px;
+      border-radius: 7px;
+    }
+  }
+  .content{
+    padding: 15px;
+    p{
+      color: #344054;
+      margin:7px 0;
+      width: 100%;
+    }
+    .weigh{
+
+    }
+    .item-name{
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 0;
+      height: 24px;
+      line-height: 23px;
+      overflow: hidden;
+  }
+    .item-desc{
+      width: 100%;
+      overflow: hidden;
+      height: 72px;
+      overflow: hidden;
+      word-break: break-all
+    }
+    .price{
+      margin: 15px 0;
+      .original-price{
+        text-decoration: line-through;
+      }
+      .discount-price{
+        margin-left: 15px;
+      }
+    }
+    .rating{
+      p{
+        font-weight: 700;
+        color: #ffdc30;
+      }
+      .icon{
+        margin: 0 5px;
+        position: relative;
+        width: 20px;
+        .base{
+          color: #9a9a9a;
+          width: 100%;
+        }
+        .overlay{
+          position: absolute;
+          top: 0;
+          overflow: hidden;
+           // 85 width is for full coverage
+          color: #ffdc30;
+        }
+      }
+    }
+
+    button{
+      margin-bottom: 0;
+      width: 100%;
+      font-weight: 600;
+      color: #344054;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="prdoucts-page">
+  <div class="container">
+    <h3>IPhone</h3>
+    <div class="path flex">
+      <p>Home/</p>
+      <p>Product</p>
+      <p class="category" *ngIf="activeCategory">/{{activeCategory}}</p>
+      <p class="category" *ngIf="activeSearch">/{{activeSearch}}</p>
+    </div>
+    <div class="flex align-start">
+      <div class="filter border">
+        <div class="filter-body">
+          <div class="title">
+            Products
+          </div>
+          <ul *ngFor="let cat of categories$ | async | keyvalue">
+            <li class="flex" (click)="navigateCategories(cat.key)">
+              <span class="toggle" *ngIf="activeCategory != cat.key; else active"></span>
+
+              <ng-template #active ><span class="toggle toggle-active"> <fa-icon class="check" [icon]="faCheck"></fa-icon></span></ng-template>
+
+              <div class="cat-name">{{cat.key}}</div>
+              <span class="cat-quantity">({{cat.value.total}})</span><!--vaule type: productListDto-->
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="item-list" *ngIf="productsList; else notFound">
+        <div class="items">
+          <div class="grid-panel border" *ngFor="let product of productsList">
+            <app-item [product] = 'product'></app-item>
+          </div>
+        </div>
+        <div class="pagination flex justify-center">
+          <button><fa-icon [icon]="faChevLeft" (click)="IterateThroughPage(-1)"></fa-icon></button>
+          <ng-container *ngFor="let i of pagination" >
+            <button class="active" *ngIf="checkActivePage(i); else active" (click)="navigatePage(i)">{{i}}</button>
+            <ng-template #active>
+              <button (click)="navigatePage(i)">{{i}}</button>
+            </ng-template>
+          </ng-container>
+          <button><fa-icon [icon]="faChevRight" (click)="IterateThroughPage(1)"></fa-icon></button>
+        </div>
+      </div>
+      <ng-template #notFound>
+        <div class="items-none border flex align-center justify-center">
+          <h1> no items were found</h1>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+<!--<button *ngIf="pageSettings.page > 4">...</button>-->

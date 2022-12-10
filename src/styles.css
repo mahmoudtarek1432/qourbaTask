@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(c:\Users\mahmoud\Documents\Qurba interview task\DummyFrontEndDeveloperTask\src\fontawesome-free-6.2.1-web\css\fontawesome.min.css);
 body {
   margin: 0;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: system-ui;
 }
 
 .container {

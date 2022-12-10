@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Account } from '../shared/model/Account';
+import { Store} from '@ngrx/store'
+import {} from 'rxjs'
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { AuthState } from '../state/Account/account.state';
+import { AccountLogin } from '../state/Account/account.action';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +34,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private formbuilder:FormBuilder){
+  constructor(private formbuilder:FormBuilder, private store:Store<AuthState>,private router: Router,private AuthService:AuthenticationService){
 
   }
 
@@ -66,19 +73,26 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitLogin(){
-    console.log("sdasd")
-    fetch('https://dummyjson.com/auth/login', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+    var mail = this.loginForm.get('email')?.value
+    var password = this.loginForm.get('password')?.value
 
+    var body ={
       username: 'kminchelle',
-      password: '0lelplR',
-      // expiresInMins: 60, // optional
+      password: '0lelplR'
+    }
+    this.AuthService.login(body).subscribe(res => {
+      this.navigateToProducts()
+      this.store.dispatch(AccountLogin({token:res,isActive:true}))
+      this.storeCredentials(res)
     })
-  })
-  .then(res => res.json())
-  .then(console.log);
   }
 
+  storeCredentials(accountInfo:any){
+    localStorage.setItem("Token",JSON.stringify(accountInfo.token))
+    localStorage.setItem("Account",JSON.stringify(accountInfo))
+  }
+
+  navigateToProducts(){
+    this.router.navigate(["/products"]);
+  }
 }

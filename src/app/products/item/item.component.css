@@ -1,0 +1,53 @@
+.item {
+  position: relative;
+}
+
+.item .discount-fixed {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  background-color: aqua;
+  color: #5a5a5a;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.item .weigh {
+  font-weight: 700;
+}
+
+.item .item-image {
+  width: 100%;
+}
+
+.item .item-image img {
+  width: 100%;
+}
+
+.item .content {
+  padding: 15px;
+}
+
+.item .content p {
+  color: #344054;
+  margin: 7px 0;
+}
+
+.item .content .item-name {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.item .content .price {
+  margin: 15px 0;
+}
+
+.item .content .price .original-price {
+  text-decoration: line-through;
+}
+
+.item .content .price .discount-price {
+  margin-left: 15px;
+}
+/*# sourceMappingURL=item.component.css.map */

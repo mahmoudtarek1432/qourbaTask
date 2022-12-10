@@ -36,4 +36,49 @@ $font_size_small: 17px;
     background-color: #f8f8f8;
     border-radius: 10px;
   }
+
+  .search{
+    height: 30px;
+    margin:  0 20px;
+    img{
+      width: 19px;
+      margin: 0 9px;
+    }
+    input{
+      border: none;
+      color: rgb(178, 178, 178);
+      width: 250px;
+
+    }
+  }
+}
+
+.account{
+  .cart{
+    margin-right: 16px;
+    position: relative;
+    img{
+      width: 25px;
+      color: #444;
+    }
+    .floating-count{
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      color: #6b6b6b;
+      font-weight: 500;
+      font-size: 14px;
+      background-color: #56d9d9;
+      width: 20px;
+      height: 20px;
+      border: 4px solid #fff;
+      border-radius: 15px;
+      text-align: center;
+    }
+  }
+  h3{
+    color: #6b6b6b;
+    font-size: 18px;
+    font-weight: 500;
+  }
 }

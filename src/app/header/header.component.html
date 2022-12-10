@@ -1,4 +1,5 @@
 <div class="header">
+
   <div class="container flex align-center">
     <div class="icon flex align-center">
       <img src="../../assets/icon.jpeg" alt="">
@@ -9,7 +10,21 @@
     </ul>
     <div class="flex-splitter"></div>
     <div class="login">
-      <a href="">Login</a>
+      <a href="" *ngIf="!loggedIn">Login</a>
+    </div>
+    <div class="search flex align-center border" *ngIf="loggedIn">
+      <img src="../../assets/magnifying-glass.png" alt="">
+      <form ngNoForm [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()">
+        <input type="search" formControlName='search' name='search' (keyup.enter)="onSubmitSearch()">
+      </form>
+    </div>
+    <div class="account flex align-center" *ngIf="loggedIn">
+      <div class="cart">
+        <img src="../../assets/shopping-cart.png" alt="">
+
+        <span class="floating-count" *ngIf="cart != null && cart > 0">{{cart}}</span>
+      </div>
+      <h3 (click)="logout()">Account</h3>
     </div>
   </div>
 </div>

@@ -1,0 +1,21 @@
+.loader{
+        position: fixed;
+        top: 0;
+        height: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    .spinner{
+        width: 200px;
+        height: 200px;
+        border: 16px solid #56d9d9;
+        border-bottom: 16px solid #fff;
+        border-radius: 82%;
+        animation: rotate 1s cubic-bezier(0.6, 1, 0.7, 0.2) 0s infinite normal;
+    }
+
+}
+
+@keyframes rotate {
+    100%{ transform: rotate(360deg); }
+}
