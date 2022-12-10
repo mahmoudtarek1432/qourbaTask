@@ -84,7 +84,6 @@ export class ProductsComponent implements OnInit{
 
   }
 
-
   getQueryParamsProducts(query:string,QueryParam:string, productFunction: Observable<productListDto>){
     if(QueryParam != null && QueryParam != '' && QueryParam != undefined){
       switch(query){
@@ -95,9 +94,8 @@ export class ProductsComponent implements OnInit{
           this.activeSearch = QueryParam
           break
       }
-      productFunction.subscribe(res => {
-                                            this.productsList = res.products
-                                            this.pagination = this.formPagination(Math.ceil(res.total/res.limit),4,this.activePage)});
+      productFunction.subscribe(res => {this.productsList = res.products
+                                        this.pagination = this.formPagination(Math.ceil(res.total/res.limit),4,this.activePage)});
     }
   }
 

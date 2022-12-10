@@ -6,6 +6,8 @@ import { AuthState } from './state/Account/account.state';
 import { AccountLogin } from './state/Account/account.action';
 import { processState } from './state/Processing/processing.state';
 import { ProcessesLoading } from './state/Processing/processing.action';
+import { cartState } from './state/Cart/cart.state';
+import { UserCart } from './state/Cart/cart.action';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +17,12 @@ import { ProcessesLoading } from './state/Processing/processing.action';
 export class AppComponent {
   title = 'DummyFrontEndDeveloperTask';
 
-  constructor(private router: Router, private store:Store<AuthState>, private processStore:Store<processState>,  private AuthenticationService:AuthenticationService)
+  constructor(private router: Router, private store:Store<AuthState>,private cartStore:Store<cartState>, private processStore:Store<processState>,  private AuthenticationService:AuthenticationService)
   {
     var res = localStorage.getItem("Token")
     store.dispatch(AccountLogin({token:res,isActive: (res)!=null }))
 
+    cartStore.dispatch(UserCart({Count: 0}))
     processStore.dispatch(ProcessesLoading({Count: 0}))
 
   }

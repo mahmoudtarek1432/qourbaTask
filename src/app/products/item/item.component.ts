@@ -20,8 +20,11 @@ export class ItemComponent {
 
   constructor(private store: Store<cartState>){
   }
+
   async AddToCart(){
     var cart = await firstValueFrom(this.store.select("cart"))
-    this.store.dispatch(UserCart({Count: cart.count + 1}))
+    var x = cart.count
+    console.log(x)
+    this.store.dispatch(UserCart({Count: x  + 1}))
   }
 }
