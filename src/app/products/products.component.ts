@@ -56,8 +56,10 @@ export class ProductsComponent implements OnInit{
       var CategoryProducts$ = this.productService.getProductsByCategory(this.activeCategory,this.activePage-1)
       var SearchProducts$ = this.productService.getSearchProducts(this.activeSearch,this.activePage-1)
 
-      this.getQueryParamsProducts(params['category'], CategoryProducts$)
-      this.getQueryParamsProducts(params['q'], SearchProducts$)
+      console.log(params['category'] + " " + params['q'])
+
+      this.getQueryParamsProducts("category",params['category'], CategoryProducts$)
+      this.getQueryParamsProducts("search",params['q'], SearchProducts$)
 
       return of()
     })).subscribe( r => {
@@ -77,15 +79,22 @@ export class ProductsComponent implements OnInit{
   //returns a map of the categories and category item list details.
   async getAllCategories(): Promise<Map<string,productListDto>>{
     var categories = await firstValueFrom(this.productService.getCategoryProductsMap())
-    this.RemoveProcess()
+     this.RemoveProcess()
     return this.mapCategoryIntoHash(categories);
 
   }
 
 
-  getQueryParamsProducts(QueryParam:string, productFunction: Observable<productListDto>){
-    if(QueryParam){
-      this.activeCategory = QueryParam
+  getQueryParamsProducts(query:string,QueryParam:string, productFunction: Observable<productListDto>){
+    if(QueryParam != null && QueryParam != '' && QueryParam != undefined){
+      switch(query){
+        case "category":
+          this.activeCategory = QueryParam
+          break
+        case "search":
+          this.activeSearch = QueryParam
+          break
+      }
       productFunction.subscribe(res => {
                                             this.productsList = res.products
                                             this.pagination = this.formPagination(Math.ceil(res.total/res.limit),4,this.activePage)});
